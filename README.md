@@ -1,3 +1,3 @@
-# Indian_Food_Dataset
+# Indian Food Dataset
 
 ### Work in progress.
