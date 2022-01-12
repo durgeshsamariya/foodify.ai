@@ -1,6 +1,9 @@
-As of 12 January 2022, Foodify.ai have following food.
+Foodify.ai have following food :
+
+1. Apple
+
 
 Note:
 - We will add more food classes in future.
 
-1. Apple
+Last Update On : 12 Jan. 2022
