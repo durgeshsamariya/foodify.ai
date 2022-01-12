@@ -1,3 +1,3 @@
-# Indian Food Dataset
+# Foodify.ai
 
 ### Work in progress.
