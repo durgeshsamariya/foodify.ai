@@ -9,6 +9,6 @@
 
 ## TO-DO
 
-[ ] Divide app in different stages.
-[ ] Create web app to collect data.
-[ ] Create script to mine data from Google Images and Microsoft Bing.
+- [ ] Divide app in different stages.
+- [ ] Create web app to collect data.
+- [ ] Create script to mine data from Google Images and Microsoft Bing.
