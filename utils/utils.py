@@ -4,25 +4,28 @@ import uuid
 from googleapiclient.http import MediaFileUpload
 from utils.google import Create_Service
 import streamlit as st
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
 
 # secret file name
-CLIENT_SECRET_FILE =  st.secrets["gcp_service_account"]
+CLIENT_SECRET_FILE =  'client_secret.json'
 # Google Driv API name and Version
 API_NAME = 'drive'
 API_VERSION = 'v3'
-
 # Scope of drive
-SCOPES = ['https://www.googleapis.com/auth/drive']
+SCOPES = ['https://www.googleapis.com/auth/drive',]
+
+
 
 def upload_image(source_file, destination_file_name):
     """
         Upload image file to Google Drive.
     """
     print("Starting to upload...")
-
-    # Intializing Service
+    #print(CLIENT_SECRET_FILE)
+    
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
-
     # Google Drive Folder ID, where images will be store
     folder_id = st.secrets['GOOGLE_DRIVE_FOLDER_ID']
 

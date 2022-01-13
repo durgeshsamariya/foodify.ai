@@ -151,9 +151,3 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
             # To do this, the key it's stored under Streamlit's
             # UploadedFile gets changed to something random
             st.session_state["upload_key"] = str(uuid.uuid4())
-
-st.markdown(
-    "The Foodify.ai is opensource app, checkout source code at \
-        [GitHub](https://github.com/durgeshsamariya/foodify.ai)."
-)
-
