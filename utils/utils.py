@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 # secret file name
-CLIENT_SECRET_FILE =  'client_secret.json'
+CLIENT_SECRET_FILE =  'cs.json'
 # Google Driv API name and Version
 API_NAME = 'drive'
 API_VERSION = 'v3'
@@ -24,7 +24,7 @@ def upload_image(source_file, destination_file_name):
     """
     print("Starting to upload...")
     #print(CLIENT_SECRET_FILE)
-    
+
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
     # Google Drive Folder ID, where images will be store
     folder_id = st.secrets['GOOGLE_DRIVE_FOLDER_ID']
