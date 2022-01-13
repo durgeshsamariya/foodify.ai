@@ -11,7 +11,10 @@ env.bak/
 venv.bak/
 foodify/
 
-## Extras
+# Extras
 *.json
 .streamlit/secrets.toml
 .DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
