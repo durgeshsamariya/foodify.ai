@@ -44,6 +44,8 @@ def display_image(img: UploadedFile) -> PIL.Image:
 
 image, displayed_image = display_image(uploaded_image)
 
+print("Starting to upload...")
+
 # Create image label form to submit
 st.write("## Image details")
 with st.form(key="image_metadata_submit_form", clear_on_submit=True):
