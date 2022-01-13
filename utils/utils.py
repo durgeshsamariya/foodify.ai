@@ -6,7 +6,7 @@ from utils.google import Create_Service
 import streamlit as st
 
 # secret file name
-CLIENT_SECRET_FILE = 'client_secret.json'
+CLIENT_SECRET_FILE =  st.secrets["gcp_service_account"]
 # Google Driv API name and Version
 API_NAME = 'drive'
 API_VERSION = 'v3'
@@ -24,7 +24,7 @@ def upload_image(source_file, destination_file_name):
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
     # Google Drive Folder ID, where images will be store
-    folder_id = st.secret['GOOGLE_DRIVE_FOLDER_ID']
+    folder_id = st.secrets['GOOGLE_DRIVE_FOLDER_ID']
 
         # Upload a file
     file_metadata = {
