@@ -1,49 +1,49 @@
-import os
-from unicodedata import name
+import boto3
 import uuid
-from googleapiclient.http import MediaFileUpload
-from utils.google import Create_Service
 import streamlit as st
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-
-# secret file name
-CLIENT_SECRET_FILE =  'cs.json'
-# Google Driv API name and Version
-API_NAME = 'drive'
-API_VERSION = 'v3'
-# Scope of drive
-SCOPES = ['https://www.googleapis.com/auth/drive',]
-
+from botocore.exceptions import ClientError
+import tempfile
+from pathlib import Path
 
 
 def upload_image(source_file, destination_file_name):
     """
-        Upload image file to Google Drive.
+        Upload image file to AWS S3 Bucket.
     """
-    print("Starting to upload...")
-    #print(CLIENT_SECRET_FILE)
+    print("Starting to upload file {0}...".format(source_file.name))
 
-    service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
-    # Google Drive Folder ID, where images will be store
-    folder_id = st.secrets['GOOGLE_DRIVE_FOLDER_ID']
+    """
+    Connect to S3 AWS Service
+    """
+    client_s3 = boto3.client(
+        's3',
+        aws_access_key_id = st.secrets['ACCESS_KEY'],
+        aws_secret_access_key = st.secrets['ACCESS_SECRET']
+    )
 
-        # Upload a file
-    file_metadata = {
-        'name': destination_file_name,
-        'parents': [folder_id]
-    }
-    # with open(source_file_name, "wb") as f:
+    """
+    Make temp file path from uploaded file
+    see: https://shunyaueta.com/posts/2021-07-09/
+    """
+    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+        fp = Path(tmp_file.name)
+        fp.write_bytes(source_file.getbuffer())
+        """
+        Uploading image to AWS S3 Bucket
+        """
+        try:
+            client_s3.upload_file(
+                tmp_file.name,
+                st.secrets['BUCKET_NAME'],
+                destination_file_name
+            )
+        except ClientError as e:
+            print('Invalid Credentials.')
+            print(e)
+        except Exception as e:
+            print(e)
     
-    media_content = MediaFileUpload(source_file)
-
-    file = service.files().create(
-        body=file_metadata,
-        media_body=media_content
-    ).execute()
-
-    print(f"File {source_file} uploaded to {destination_file_name}")
+    print("File {0} uploaded to {1}".format(source_file.name, destination_file_name))
 
 def create_unique_filename() -> str:
     """
