@@ -56,7 +56,7 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
         label="Where are you uploading this images? \
             You can enter state name if you from India else you can enter country name. ",
         autocomplete="place",
-        max_chars=100,  # Get country code in 2 chars
+        max_chars=100,
     )
 
     # Person email
@@ -81,7 +81,7 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
     )
     if submit_button:
         if uploaded_image is None:
-            st.error("Please upload an image")
+            st.error("Please upload an image.")
         else:
             # Generate unique filename for the image
             unique_image_id = create_unique_filename()
@@ -96,36 +96,6 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
                     source_file=uploaded_image,
                     destination_file_name=unique_image_id + ".jpg",
                 )
-
-            # Add image metadata to Gsheet
-            img_height = image.height
-            img_width = image.width
-
-            # Create dict of image metadata to save
-            image_info = [
-                [
-                    unique_image_id,
-                    current_time,
-                    img_height,
-                    img_width,
-                    label,
-                    place,
-                    email
-                ]
-            ]
-            #response = append_values_to_gsheet(values_to_add=image_info)
-
-            # # Save data to SQL table
-            # write_record_to_table(
-            #     image_id=unique_image_id,
-            #     upload_timestamp=current_time,
-            #     image_height=img_height,
-            #     image_width=img_width,
-            #     user_uploaded_label=label,
-            #     user_uploaded_country_code=country,
-            #     user_uploaded_email=email,
-            # )
-
             st.success(
                 f"Your image of {label} has been uploaded sucessfully! Thank you for your contribution :)"
             )
