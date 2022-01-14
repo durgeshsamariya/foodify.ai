@@ -12,7 +12,7 @@ venv.bak/
 foodify/
 
 # Extras
-#*.json
+*.json
 .streamlit/secrets.toml
 .DS_Store
 *.pickle
