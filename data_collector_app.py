@@ -54,7 +54,7 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
     # Image upload location
     place = st.text_input(
         label="Where are you uploading this images? \
-            You can enter state name if you from India else you can enter country name. ",
+            You can enter state name if you are uploading image from India else you can enter country name. ",
         autocomplete="place",
         max_chars=100,
     )
