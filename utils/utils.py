@@ -4,6 +4,8 @@ import streamlit as st
 from botocore.exceptions import ClientError
 import tempfile
 from pathlib import Path
+from google.oauth2 import service_account
+from googleapiclient import discovery
 
 
 def upload_image(source_file, destination_file_name):
@@ -51,3 +53,35 @@ def create_unique_filename() -> str:
     """
     return str(uuid.uuid4())
 
+def save_to_google_sheet(values):
+    scope = [
+        "https://spreadsheets.google.com/feeds",
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/drive",
+    ]
+
+    """
+    Read credentials from st.secrets,
+    see: https://docs.streamlit.io/en/stable/tutorial/private_gsheet.html
+    """
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],  
+        scopes=scope,
+    )
+
+    service = discovery.build("sheets", "v4", credentials=credentials)
+
+    # Create the JSON-like format for adding rows to the sheet
+    value_range_body = {"majorDimension": "ROWS", "values": values}
+
+    """
+    Appending values in google sheet.
+    See: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append
+    """
+    service.spreadsheets().values().append(
+            spreadsheetId=st.secrets['GSHEET_ID'],
+            range="Sheet1!A:G",
+            valueInputOption="USER_ENTERED",
+            insertDataOption="INSERT_ROWS",
+            body=value_range_body).execute()

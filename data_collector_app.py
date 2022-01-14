@@ -3,7 +3,7 @@ import streamlit as st
 import datetime
 import uuid
 from streamlit.uploaded_file_manager import UploadedFile
-from utils.utils import upload_image, create_unique_filename
+from utils.utils import upload_image, create_unique_filename, save_to_google_sheet
 
 st.title("Foodify.ai Data Collection 🍔🌯🍫")
 st.write(
@@ -99,6 +99,20 @@ with st.form(key="image_metadata_submit_form", clear_on_submit=True):
             st.success(
                 f"Your image of {label} has been uploaded sucessfully! Thank you for your contribution :)"
             )
+
+            info = [
+                [
+                    unique_image_id,
+                    current_time,
+                    image.height,
+                    image.width,
+                    label,
+                    place,
+                    email     
+                ]
+            ]
+
+            save_to_google_sheet(info)
 
             # Remove (displayed) image after upload successful
             displayed_image.empty()
