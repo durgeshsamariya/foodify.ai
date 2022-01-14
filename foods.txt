@@ -1,9 +1,158 @@
 Foodify.ai have following food :
 
-1. Apple
-
+1	Aloo Dry
+2	Aloo Gravy
+3	Aloo Tikki
+4	Apple
+5	Apricot
+6	Avial
+7	Avocado
+8	Balushahi
+9	Banana
+10	Barfi
+11	Beans
+12	Beetroot
+13	Bhakarwadi
+14	Bhatura
+15	Bhindi masala
+16	Biryani
+17	Black Eyed Beans Curry
+18	Black Rice
+19	Boil Eggs
+20	Broccoli
+21	Burger
+22	Burritos
+23	Cabbage
+24	Cake
+25	Carrot
+26	Chaat
+27	Chakari
+28	Chana Masala
+29	Cherry
+30	Chevdo
+31	Chicken 65
+32	Chicken Curry
+33	Chikki
+34	Coconut
+35	Corn
+36	Cucumber
+37	Cup Cakes
+38	Dabeli
+39	Dahi Vada
+40	Dal
+41	Dates
+42	Dhokala
+43	Donuts
+44	Dosa
+45	Dragon Fruit
+46	Drumsticks
+47	Egg Curry
+48	Fafda
+49	Falsa
+50	Figs
+51	Fish Curry
+52	Frankie
+53	Fries
+54	Gajjar ka Halwa
+55	Ghevar
+56	Ginger
+57	Gobi Sabji
+58	Goja
+59	Grapefruit
+60	Grapes
+61	Guava
+62	Gujiya Sweet
+63	Gulab Jamun
+64	Hakka Noodles
+65	Hot Dog
+66	Ice Cream (Cone)
+67	Idli
+68	Imarti
+69	Jackfruit
+70	Jalebi
+71	Juices
+72	​Jungli Jalebi
+73	Kachori
+74	Kadhi
+75	Kaju katli
+76	Khakhra
+77	Khandvi
+78	Kheer
+79	Khichdi
+80	Kiwi
+81	Kofta Curry
+82	Kulfi
+83	Laddu
+84	Lemon
+85	Lychee
+86	Malpua
+87	Manchuriant
+88	Mandarin
+89	Mango (Raw + Fruits)
+90	Mashroom
+91	Medu Vada
+92	Milk Shakes (All)
+93	Mirchi Bajji
+94	Modak
+95	Momos
+96	Musk Melon
+97	Naan
+98	Nan Khatai
+99	Noodles
+100	Olives
+101	Omlette
+102	Orange
+103	Paneer Gravy
+104	Paneer Palak
+105	Pani Puri
+106	Papad
+107	Papaya
+108	Paratha
+109	Pastries
+110	Patra
+111	Pav Bhaji
+112	Peach
+113	Penda
+114	Pineapple
+115	Pizza
+116	Poha
+117	Pomegranate
+118	Pongal
+119	Poori
+120	Potato
+121	Potato Chips
+122	Pudding
+123	Puffs
+124	Pumpkins
+125	Puri Khaja
+126	Rabri
+127	Raita
+128	Rajama Masala
+129	Rice
+130	Rosgulla
+131	Sabudana Vada
+132	Sabzi Dry
+133	Sabzi Gravy
+134	Salad
+135	Sambar
+136	Samosa
+137	Sandwichs
+138	Shankarpali
+139	Sohan Papdi
+140	​Star Fruit
+141	Subs
+142	Tamarind
+143	Tea
+144	Thepla
+145	Tomato
+146	Undhiyu
+147	Uttapam
+148	Vada
+149	Vada Pav
+150	Watermelon
+151	Zucchini
 
 Note:
 - We will add more food classes in future.
 
-Last Update On : 12 Jan. 2022
+Last Update On : 14 Jan. 2022
