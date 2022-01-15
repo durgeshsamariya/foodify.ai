@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Foodify.ai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>Foodify.ai 🌯 🍔</h1>
+            <p><bold>🚧 🚧 Work in progress 🚧 🚧</bold></p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <label for="file-upload" id="file-drag" class="upload-box">
+            <div id="upload-caption">Drop image here or click to select</div>
+            <img id="image-preview" class="hidden" />
+        </label>
+        <input id="file-upload" class="hidden" type="file" accept="image/*" />
+    </div>
+
+    <div class="button_group">
+        <input type="button" value="Clear" class="button" onclick="clearImage();" />
+        <input type="button" value="Predict" class="button" onclick="predictModel();" />
+    </div>
+<!--
+    <div id="image-box">
+        <img id="image-display" />
+        <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+    </div> -->
+    <div style="text-align: center;font-weight: 900;" id="pred-result" class="hidden"></div>
+    <div style="text-align: center;font-weight: 900;" id="pred-prob" class="hidden"></div>
+</body>
+
+<!-- Import TensorFlow.js -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+<!-- Import TensorFlow.js Lite -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite@0.0.1-alpha.7/dist/tf-tflite.min.js"></script>
+<!-- Import the main script file -->
+<script src="static/script.js"></script>
+
+</html>
