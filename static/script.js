@@ -7,7 +7,7 @@ const category = {
     16: ['naan','Naan'], 17: ['orange_juice','Orange Juice'], 18: ['paneer tikka','Paneer Tikka'], 19: ['paratha','Paratha'],
     20: ['pav bhaji','Pav Bhaji'], 21: ['pizza','Pizza'], 22: ['poha','Poha'],
     23: ['puri-bhaji','Puri Bhaji'], 24: ['rajma','Rajma'], 25: ['samosa','Samosa'],
-    26: ['sandwich','Sandwich'], 27: ['sandwich subs','Sandwich Subs'], 28: ['thepla','Thepla'], 28: ['vada pav','Vada Pav']
+    26: ['sandwich','Sandwich'], 27: ['sandwich subs','Sandwich Subs'], 28: ['thepla','Thepla'], 29: ['vada pav','Vada Pav']
 }
 
 
@@ -98,17 +98,17 @@ function previewFile(file) {
 async function predictModel() {
     // action for the submit button
 
-//    if (!imageDisplay.src || !imageDisplay.src.startsWith("data")) {
-//        window.alert("Please select an image before submit.");
-//        return;
-//    }
+    if (!imagePreview.src) {
+        window.alert("Please select an image...");
+        return;
+    }
 
     tensor = tf.image.resizeBilinear(tf.browser.fromPixels(imagePreview), [75, 75])
         .toFloat()
         .expandDims()
         .div(255);
 
-    console.log("model about to predict...");
+    console.log("Predicting...");
     const output = await tflitemodel.predict(tensor);
     const output_values = tf.softmax(output.arraySync()[0]);
     console.log("Arg max:");
