@@ -14,9 +14,7 @@ foodify/
 # Extras
 .streamlit/secrets.toml
 .DS_Store
-*.pickle
-jsweights/
-food*.json
+*.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
