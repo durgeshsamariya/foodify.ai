@@ -12,10 +12,11 @@ venv.bak/
 foodify/
 
 # Extras
-*.json
 .streamlit/secrets.toml
 .DS_Store
 *.pickle
+jsweights/
+food*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
